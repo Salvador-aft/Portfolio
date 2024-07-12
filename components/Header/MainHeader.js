@@ -48,7 +48,6 @@ function HeaderMenu(props) {
         </div>
       </header>
 
-      {/* Modal */}
       {showModal && (
         <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
@@ -60,8 +59,8 @@ function HeaderMenu(props) {
               <div className="modal-body">
                 <p>Please select the language of the CV you want to download:</p>
                 <div className="d-flex">
-                  <button type="button" className="btn btn-primary me-1" onClick={() => { setShowModal(false); window.location.href = '/cv-en.pdf'; }}>English</button>
-                  <button type="button" className="btn btn-secondary ms-1" onClick={() => { setShowModal(false); window.location.href = '/cv-es.pdf'; }}>Español</button>
+                  <a href="/cv-en.pdf" download className="btn btn-primary me-1" onClick={() => setShowModal(false)}>English</a>
+                  <a href="/cv-es.pdf" download className="btn btn-secondary ms-1" onClick={() => setShowModal(false)}>Español</a>
                 </div>
               </div>
               <div className="modal-footer">

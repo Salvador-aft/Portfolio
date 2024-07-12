@@ -1,0 +1,106 @@
+.bg-custom {
+  background-color: #19142A;
+  padding: 20px;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-secondary {
+  color: #c0c0c0;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.margin-icon {
+  margin: 10px 0;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.contact-info {
+  padding: 20px 50px 20px 200px;
+}
+
+@media (max-width: 1800px) {
+  .contact-info{
+    padding: 20px 50px 20px 100px;
+  }
+}
+
+@media (max-width: 1700px) {
+  .contact-info{
+    padding: 20px 50px 20px 25px;
+  }
+}
+
+.contact-form {
+  padding: 20px;
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.form-input {
+  flex: 1;
+  padding: 10px;
+  background-color: #19142A;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  min-width: calc(50% - 10px);
+  max-width: 800px;
+}
+
+.form-input::placeholder {
+  color: #c0c0c0;
+}
+
+.submit-button {
+  width: 150px;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #cc0000;
+}
+
+.margin-icon p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-info, .contact-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .form-input {
+    min-width: 100%;
+  }
+}

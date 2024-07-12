@@ -1,0 +1,22 @@
+.custom-container-text {
+    flex: 1;
+  }
+  
+  .custom-container-person {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .custom-container-follow {
+    flex: 0 0 auto;
+    text-align: center;
+  }
+  
+  .custom-border-paragraph {
+    border-bottom: 2px solid #fff;
+  }
+  
+  #body-text {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }  

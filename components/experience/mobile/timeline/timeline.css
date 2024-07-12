@@ -1,0 +1,47 @@
+.mobile-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: visible;
+}
+
+.timeline-image {
+  width: 100%;
+  transition: transform 0.3s ease, transform-origin 0.3s ease;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.clickable-zones {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.clickable-zone {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.clickable-zone.active {
+  flex: 1 0 100%;
+  height: 150px;
+}

@@ -41,13 +41,14 @@ const Overlay = styled.div`
   transition: opacity 0.3s ease;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
@@ -56,7 +57,7 @@ const Button = styled.button`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.a`
   background-color: #D5213A;
   color: #fff;
   display: inline-block;
@@ -65,6 +66,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -98,32 +100,38 @@ function Sampler(props) {
           <Row className="mt-5">
             <Col xs={12} md={4} className="mb-3 mb-md-0">
               <ImageContainer>
-                <Image src={projectECommerce} />
-                <Overlay className="overlay">
-                  <Button>More details</Button>
-                </Overlay>
+                <a href="https://github.com/Salvador-aft/Ecommerce-project" target="_blank" rel="noopener noreferrer">
+                  <Image src={projectECommerce} />
+                  <Overlay className="overlay">
+                    <Button href="https://github.com/Salvador-aft/Ecommerce-project" target="_blank" rel="noopener noreferrer">More details</Button>
+                  </Overlay>
+                </a>
               </ImageContainer>
             </Col>
             <Col xs={12} md={4} className="mb-3 mb-md-0">
               <ImageContainer>
-                <Image src={projectLandingPage} />
-                <Overlay className="overlay">
-                  <Button>More details</Button>
-                </Overlay>
+                <a href="https://github.com/Salvador-aft/Landing-Page---MinuteMaid" target="_blank" rel="noopener noreferrer">
+                  <Image src={projectLandingPage} />
+                  <Overlay className="overlay">
+                    <Button href="https://github.com/Salvador-aft/Landing-Page---MinuteMaid" target="_blank" rel="noopener noreferrer">More details</Button>
+                  </Overlay>
+                </a>
               </ImageContainer>
             </Col>
             <Col xs={12} md={4}>
               <ImageContainer>
-                <Image src={projectValidation} alt="Project Landingpage" />
-                <Overlay className="overlay">
-                  <Button>More details</Button>
-                </Overlay>
+                <a href="https://github.com/Salvador-aft/Verification-project" target="_blank" rel="noopener noreferrer">
+                  <Image src={projectValidation} alt="Project Validation" />
+                  <Overlay className="overlay">
+                    <Button href="https://github.com/Salvador-aft/Verification-project" target="_blank" rel="noopener noreferrer">More details</Button>
+                  </Overlay>
+                </a>
               </ImageContainer>
             </Col>
           </Row>
         </Container>
         <div className='text-center pb-5'>
-          <StyledButton className="btn solid-border text-white mt-5">View All</StyledButton>
+          <StyledButton href="https://github.com/Salvador-aft?tab=repositories" target="_blank" rel="noopener noreferrer" className="btn solid-border text-white mt-5">View All</StyledButton>
         </div>
       </Container>
     </CustomContainer>

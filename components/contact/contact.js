@@ -48,8 +48,8 @@ function Contact() {
       <div className='container'>
         <div className='row'>
           <div className='contact-info col-md-6'>
-            <h2 className='text-white mt-5'>Contact Us</h2>
-            <p className='text-white'>Let's make something new, different and more meaningful or make things more visual or conceptual?</p>
+            <h2 className='text-white mt-5'>Contact Me</h2>
+            <p className='text-white'>Let's develop something new, different, and more meaningful by making things more visual or technical</p>
             <div className='margin-icon d-flex align-items-center'>
               <img src={Number} alt='Phone Icon' className='img-fluid icon' />
               <div>

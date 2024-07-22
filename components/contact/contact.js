@@ -68,7 +68,7 @@ function Contact() {
               <img src={Localization} alt='Localization Icon' className='img-fluid icon' />
               <div>
                 <p className='text-secondary'>Address</p>
-                <p className='text-white'>El Boyero 933, Burzaco, Buenos Aires, Argentina</p>
+                <p className='text-white'>Buenos Aires, Argentina</p>
               </div>
             </div>
           </div>

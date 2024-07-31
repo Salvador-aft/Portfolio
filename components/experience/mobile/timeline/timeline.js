@@ -1,18 +1,23 @@
 import React, { useState, useRef } from 'react';
 import './timeline.css';
 import timeline from '../../images/timeline.svg';
-import LineText from '../line-text/lineText'; 
+import LineText from '../line-text/lineText';
 
 const MobileTimeline = (props) => {
+  // State to keep track of which date is currently zoomed in
   const [zoomedDate, setZoomedDate] = useState(null);
+  // Reference to the timeline image element
   const imageRef = useRef(null);
 
+  // Handle clicks on date zones
   const handleDateClick = (date, transformOrigin) => {
     if (zoomedDate === date) {
+      // If the clicked date is already zoomed in, reset the zoom
       setZoomedDate(null);
       imageRef.current.style.transform = 'scale(1)';
     } else {
-      setZoomedDate(date); 
+      // If a new date is clicked, zoom in on that date and set the transform origin
+      setZoomedDate(date);
       imageRef.current.style.transformOrigin = transformOrigin;
       imageRef.current.style.transform = 'scale(6)';
     }

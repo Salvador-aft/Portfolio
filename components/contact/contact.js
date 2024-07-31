@@ -7,6 +7,7 @@ import Localization from './images/localization.png';
 import Number from './images/number.png';
 
 function Contact() {
+  // State to manage form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,20 +16,27 @@ function Contact() {
     message: ''
   });
   
+  // State to manage notification message
   const [notification, setNotification] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+ // Function to handle changes in the input fields
+const handleChange = (e) => {
+  // Destructure name and value from the event target (input field)
+  const { name, value } = e.target;
+  // Update the formData state with the new value for the specific input field
+  setFormData({
+    ...formData, // Keep the existing values in formData
+    [name]: value // Update the value of the specific field being changed
+  });
+};
 
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
+    // Send form data to the server
     axios.post('http://localhost:5000/contact', formData)
       .then(response => {
+        // If successful, show success notification and reset form data
         setNotification('Email sent successfully!');
         setFormData({
           name: '',
@@ -39,6 +47,7 @@ function Contact() {
         });
       })
       .catch(error => {
+        // If there's an error, show error notification
         setNotification('There was an error sending the email.');
       });
   };
@@ -74,7 +83,9 @@ function Contact() {
           </div>
           <div className='contact-form col-md-6'>
             <h2 className='text-white mt-5'>Drop a Line</h2>
+            {/* Display notification if it exists */}
             {notification && <div className="alert alert-info">{notification}</div>}
+            {/* Form submission handled by handleSubmit */}
             <form onSubmit={handleSubmit}>
               <div className="form-row mb-3">
                 <input
@@ -83,7 +94,7 @@ function Contact() {
                   placeholder="Name"
                   className="form-input"
                   value={formData.name}
-                  onChange={handleChange}
+                  onChange={handleChange} // Update form data state on input change
                 />
                 <input
                   type="email"
@@ -91,7 +102,7 @@ function Contact() {
                   placeholder="Email"
                   className="form-input"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={handleChange} // Update form data state on input change
                 />
               </div>
               <div className="form-row mb-3">
@@ -101,7 +112,7 @@ function Contact() {
                   placeholder="Phone"
                   className="form-input"
                   value={formData.phone}
-                  onChange={handleChange}
+                  onChange={handleChange} // Update form data state on input change
                 />
                 <input
                   type="text"
@@ -109,7 +120,7 @@ function Contact() {
                   placeholder="Subject"
                   className="form-input"
                   value={formData.subject}
-                  onChange={handleChange}
+                  onChange={handleChange} // Update form data state on input change
                 />
               </div>
               <textarea
@@ -117,7 +128,7 @@ function Contact() {
                 placeholder="Message"
                 className="form-input"
                 value={formData.message}
-                onChange={handleChange}
+                onChange={handleChange} // Update form data state on input change
               />
               <button type="submit" className="submit-button mt-5">Submit</button>
             </form>

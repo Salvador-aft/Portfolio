@@ -104,24 +104,31 @@ const FollowImage = styled.img`
 `;
 
 const Presentation = (props) => {
+  // State to manage the source of the follow image based on screen size
   const [followImgSrc, setFollowImgSrc] = useState(followImage);
 
+  // useEffect hook to handle the image source update on window resize
   useEffect(() => {
     const handleResize = () => {
+      // If the screen width is 992px or greater, use the vertical follow image
       if (window.innerWidth >= 992) {
         setFollowImgSrc(followImage);
       } else {
+        // Otherwise, use the horizontal follow image
         setFollowImgSrc(followImageHorizontal);
       }
     };
 
+    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
+    // Call the handler initially to set the correct image source
     handleResize();
 
+    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only on mount and unmount
 
   const iconColor = '#D5213A';
 

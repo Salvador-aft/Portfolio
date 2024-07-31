@@ -6,6 +6,7 @@ import TimeLine from './images/timeline.svg';
 import MobileTimeline from './mobile/timeline/timeline';
 
 function Experience() {
+  // Define the steps for the timeline
   const steps = [
     {
       id: 'step-01',
@@ -59,11 +60,17 @@ function Experience() {
     },
   ];
 
+  // State to check if the view is mobile
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
+    // Function to handle window resize event
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
+
+    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
+
+    // Clean up event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -79,10 +86,12 @@ function Experience() {
         </p>
       </div>
       {isMobile ? (
+        // Render mobile timeline if the view is mobile
         <div className="mobile-timeline-container">
           <MobileTimeline />
         </div>
       ) : (
+        // Render desktop timeline if the view is not mobile
         <div className='container'>
           <div className='custom-container-steps'>
             {steps.map((step) => (

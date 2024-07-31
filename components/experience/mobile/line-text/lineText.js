@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import LinePNG from '../../images/line.png';
 
+// Define keyframe animations for drawing the line, revealing text, and hiding text
 const drawLine = keyframes`
   from {
     height: 0;
@@ -33,6 +34,7 @@ const hideText = keyframes`
   }
 `;
 
+// Styled-components for the container, line, and text with animations
 const StepContainer = styled.div`
   display: flex;
   align-items: center;
@@ -81,6 +83,7 @@ const TextContainer = styled.div`
   left: ${({ textPosition }) => textPosition.left};
 `;
 
+// Object to store content and positions for each step
 const stepsContent = {
   'focus2018': {
     title: 'Step 01',
@@ -143,35 +146,41 @@ const stepsContent = {
   }
 };
 
+// Main component to display line and text with animations
 const LineText = ({ date }) => {
+  // State to control the animation stages (1: initial, 2: revealed, 3: hidden)
   const [state, setState] = useState(1);
 
+  // Effect to manage timing and transitions between states
   useEffect(() => {
     if (state === 2) {
       const timer = setTimeout(() => {
         setState(3);
-      }, 3000);
+      }, 3000); // After 3 seconds, hide the text
       return () => clearTimeout(timer);
     } else if (state === 3) {
       const timer = setTimeout(() => {
         setState(1);
-      }, 1000);
+      }, 1000); // After 1 second, reset to initial state
       return () => clearTimeout(timer);
     }
   }, [state]);
 
+  // Function to handle click on text, hides the text if currently revealed
   const handleTextClick = () => {
     if (state === 2) {
       setState(3);
     }
   };
 
+  // Function to handle click on line, reveals the text if in initial state
   const handleLineClick = () => {
     if (state === 1) {
       setState(2);
     }
   };
 
+  // Destructure content and positions for the current step based on date
   const { title, text, imagePosition, textPosition } = stepsContent[date] || {};
 
   return (

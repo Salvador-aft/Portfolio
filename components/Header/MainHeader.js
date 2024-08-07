@@ -43,7 +43,7 @@ function HeaderMenu(props) {
                 <a className="nav-link text-white" href="#contact">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link custom-button text-white" href="#" onClick={handleDownloadClick}>Download CV</a> {/* Call handleDownloadClick on click */}
+                <a className="nav-link custom-button text-white" href="#" onClick={handleDownloadClick}>Download CV</a>
               </li>
             </ul>
           </div>
@@ -56,7 +56,7 @@ function HeaderMenu(props) {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Select CV Language</h5>
-                <button type="button" className="btn-close" aria-label="Close" onClick={handleCloseModal}></button> {/* Call handleCloseModal on click */}
+                <button type="button" className="btn-close" aria-label="Close" onClick={handleCloseModal}></button>
               </div>
               <div className="modal-body">
                 <p>Please select the language of the CV you want to download:</p>
@@ -66,7 +66,7 @@ function HeaderMenu(props) {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button> {/* Call handleCloseModal on click */}
+                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
               </div>
             </div>
           </div>

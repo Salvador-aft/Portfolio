@@ -3,19 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import logoImage from './images/logo.svg';
 import './MainHeader.css';
+import { saveAs } from 'file-saver';
 
-function HeaderMenu(props) {
-  const [showModal, setShowModal] = useState(false); // State to control the modal visibility
+function HeaderMenu() {
+  const [showModal, setShowModal] = useState(false);
 
-  // Function to handle the download CV button click
   const handleDownloadClick = (event) => {
-    event.preventDefault(); // Prevent the default link behavior
-    setShowModal(true); // Show the modal
+    event.preventDefault();
+    setShowModal(true);
   };
 
-  // Function to close the modal
   const handleCloseModal = () => {
-    setShowModal(false); // Hide the modal
+    setShowModal(false);
+  };
+
+  const downloadCV = (language) => {
+    const fileName = language === 'en' ? 'cv-Salvador-Farias-Torres-en.pdf' : 'cv-Salvador-Farias-Torres-es.pdf';
+    saveAs(`${process.env.PUBLIC_URL}/${fileName}`, fileName);
+    setShowModal(false);
   };
 
   return (
@@ -50,7 +55,7 @@ function HeaderMenu(props) {
         </div>
       </header>
 
-      {showModal && ( // Conditionally render the modal based on showModal state
+      {showModal && (
         <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -61,8 +66,8 @@ function HeaderMenu(props) {
               <div className="modal-body">
                 <p>Please select the language of the CV you want to download:</p>
                 <div className="d-flex">
-                  <a href="/cv-Salvador-Farias-Torres-en.pdf" download className="btn btn-primary me-1" onClick={() => setShowModal(false)}>English</a> {/* Set showModal to false on click */}
-                  <a href="/cv-Salvador-Farias-Torres-es.pdf" download className="btn btn-secondary ms-1" onClick={() => setShowModal(false)}>Español</a> {/* Set showModal to false on click */}
+                  <button className="btn btn-primary me-1" onClick={() => downloadCV('en')}>English</button>
+                  <button className="btn btn-secondary ms-1" onClick={() => downloadCV('es')}>Español</button>
                 </div>
               </div>
               <div className="modal-footer">

@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const contactRoutes = require('./routes/contact');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,3 +26,5 @@ app.use('/contact', contactRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
